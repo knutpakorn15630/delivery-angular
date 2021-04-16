@@ -1,0 +1,88 @@
+<div class="main-content" *ngIf="members" style="margin-top: 0px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon">
+                        <div class="row">
+                            <div class="col-10">
+                                <h3 class="card-title "><b>ข้อมูล สมาชิก</b></h3>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn btn-danger btn-block" style="font-size: 16px;"
+                                    (click)="open(content)">เพิ่มสมาชิก</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive " style="cursor: pointer;">
+                            <table class="table">
+                                <thead class=" text-primary" style="text-align: center;">
+                                    <th>ID</th>
+                                    <th>ชื่อ</th>
+                                    <th>นาม-สกุล </th>
+                                    <th>อายุ </th>
+                                    <th>วันที่เพิ่ม</th>
+                                </thead>
+                                <tbody *ngIf="members && members.length > 0">
+                                    <tr *ngFor="let member of members" style="text-align: center;">
+                                        <td>{{member.id}}</td>
+                                        <td>{{member.name}}</td>
+                                        <td>{{member.lastname}}</td>
+                                        <td>{{member.age}}</td>
+                                        <td>{{member.daycreate}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-basic-title"><b>เพิ่มสมาชิก</b></h3>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-muted">ชื่อ</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="name" [(ngModel)]="ngCreate.name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-muted">นาม-สกุล</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="lastname" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-muted">อายุ</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="age" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-muted">วันที่่เพิ่ม</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="daycreat" >
+                        </div>
+                    </div>
+                    {{ngCreate|json}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-purple" style="font-size: 16px;"
+                    (click)="c('Save click')">บันทึก</button>
+            </div>
+        </ng-template>
+    </div>
+</div>
+
