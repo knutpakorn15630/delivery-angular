@@ -11,28 +11,43 @@ declare var $: any;
 })
 
 export class UsercomponentComponent implements OnInit {
-  ngtest = {
-    name: ''
-  }
+
+
+  ngMember = {
+    name: '',
+    lastname: '',
+    age: '',
+    email: '',
+    adress: '',
+  };
 
   members = [
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 },
-    { id: 2, name: 'Eve', lastname: 'sdfasg', age: 24, daycreate: 23 }
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' },
+    { name: 'Eve', lastname: 'sdfasg', age: 24, email: 'asjflkjsaf656@gmail.com', Adress: 'hsdaifhsadfhlsahflsahf' }
   ]
-  ngCreate = {
-    name: '',
-    lastnaem: ''
-  };
-  constructor(private modalService: NgbModal) { }
+
+  constructor(config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
+  }
+  EmptyData() {
+    this.ngMember = {
+      name: '',
+      lastname: '',
+      age: '',
+      email: '',
+      adress: '',
+    };
+  }
   open(content) {
     this.modalService.open(content, { size: 'lg' });
   }

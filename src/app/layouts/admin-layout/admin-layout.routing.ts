@@ -10,8 +10,9 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { UsercomponentComponent } from 'app/components/usercomponent/usercomponent.component';
 import { ReportcomponentComponent } from 'app/components/reportcomponent/reportcomponent.component';
-import { DeliverycomponentComponent } from 'app/components/deliverycomponent/deliverycomponent.component';
+
 import { ShopcomponentComponent } from 'app/components/shopcomponent/shopcomponent.component';
+import { DeliverycomponentComponent } from 'app/components/deliverycomponent/deliverycomponent.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {

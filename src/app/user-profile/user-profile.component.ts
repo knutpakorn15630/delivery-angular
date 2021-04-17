@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
+    ngName = {
+      name: '',
+      age: ''
+    }
   constructor() { }
 
   ngOnInit() {
