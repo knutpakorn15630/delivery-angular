@@ -1,18 +1,18 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '../../dashboard/dashboard.component';
-import { UserProfileComponent } from '../../user-profile/user-profile.component';
-import { TableListComponent } from '../../table-list/table-list.component';
-import { TypographyComponent } from '../../typography/typography.component';
+import { DashboardComponent } from '../../component/dashboard/dashboard.component';
+import { TableListComponent } from '../../component/table-list/table-list.component';
+import { TypographyComponent } from '../../component/typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
-import { MapsComponent } from '../../maps/maps.component';
-import { NotificationsComponent } from '../../notifications/notifications.component';
+import { MapsComponent } from '../../component/maps/maps.component';
+import { NotificationsComponent } from '../../component/notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { UsercomponentComponent } from 'app/components/usercomponent/usercomponent.component';
 import { ReportcomponentComponent } from 'app/components/reportcomponent/reportcomponent.component';
-
 import { ShopcomponentComponent } from 'app/components/shopcomponent/shopcomponent.component';
 import { DeliverycomponentComponent } from 'app/components/deliverycomponent/deliverycomponent.component';
+import { LogincomponentComponent } from 'app/components/logincomponent/logincomponent.component';
+import { UserProfileComponent } from 'app/component/user-profile/user-profile.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -68,5 +68,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user', component: UsercomponentComponent },
     { path: 'report', component: ReportcomponentComponent },
     {path: 'delivery', component: DeliverycomponentComponent},
-    {path: 'shop', component: ShopcomponentComponent}
+    {path: 'shop', component: ShopcomponentComponent},
+    {path: 'login', component: LogincomponentComponent}
 ];

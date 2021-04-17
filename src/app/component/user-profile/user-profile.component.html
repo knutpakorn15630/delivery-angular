@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" *ngIf="ResTest">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8">
@@ -104,5 +104,15 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="table-responsive " style="cursor: pointer;">
+        <table class="table">
+            <thead class=" text-primary" style="text-align: center;">
+                <th *ngFor="let item of ResTest.assName">{{item.title}}</th>
+            </thead>
+        </table>
+    </div>
+    </div>
   </div>
 </div>
+

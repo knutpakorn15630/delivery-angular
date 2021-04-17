@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { LogincomponentComponent } from './logincomponent/logincomponent.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     UsercomponentComponent,
     ReportcomponentComponent,
     ShopcomponentComponent,
-    DeliverycomponentComponent
+    DeliverycomponentComponent,
+    LogincomponentComponent
   ],
   exports: [
     NavbarComponent,
