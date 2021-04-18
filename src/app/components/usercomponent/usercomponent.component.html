@@ -1,4 +1,4 @@
-<div class="main-content" *ngIf="members" style="margin-top: 0px;">
+<div class="main-content" *ngIf="DataUser" style="margin-top: 0px;">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
@@ -10,27 +10,22 @@
                             </div>
                             <div class="col-2">
                                 <button type="button" class="btn btn-danger btn-block" style="font-size: 16px;"
-                                    (click)="open(content)">เพิ่มสมาชิก</button>
+                                    (click)="showModal()">เพิ่มสมาชิก</button>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive " style="cursor: pointer;">
+                        <div class="table-responsive ">
                             <table class="table">
-                                <thead class=" text-primary" style="text-align: center;">
+                                <thead class=" text-primary">
                                     <th>ชื่อ</th>
                                     <th>นาม-สกุล </th>
-                                    <th>อายุ </th>
-                                    <th>อีเมล</th>
-                                    <th>ที่อยู่</th>
                                 </thead>
-                                <tbody *ngIf="members && members.length > 0">
-                                    <tr *ngFor="let member of members" style="text-align: center;">
-                                        <td>{{member.name}}</td>
-                                        <td>{{member.lastname}}</td>
-                                        <td>{{member.age}}</td>
-                                        <td>{{member.email}}</td>
-                                        <td>{{member.Adress}}</td>
+                                <tbody *ngIf="DataUser">
+                                    <tr *ngFor="let item of DataUser.data">
+                                        <td>{{item.firstName}}</td>
+                                        <td>{{item.lastName}}</td>
+                                        <td><button type="button" class="btn btn-danger btn-block" style="font-size: 16px;" (click)="deleteUser(item.id)">ลบข้อมูล</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -41,53 +36,55 @@
             </div>
         </div>
         <!-- modal -->
+        <div class="modal fade bd-example-modal-lg" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="modal-basic-title"><b>เพิ่มสมาชิก</b></h3>
+                        <button type="button" class="close" data-dismiss="modal" (click)="EmptyData()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="ชื่อ" type="text" name="name"
+                                            [(ngModel)]="ngMember.name">
+                                    </mat-form-field>
+                                </div>
 
-        <ng-template #content let-c="close" let-d="dismiss">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modal-basic-title"><b>เพิ่มสมาชิก</b></h3>
-                <button type="button" class="close" aria-label="Close" (click)="d('Cross click'); EmptyData()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="นาม-สกุล" type="text" name="lastname"
+                                            [(ngModel)]="ngMember.lastName">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Username" type="text" name="age"
+                                            [(ngModel)]="ngMember.user">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Password" type="password" name="email"
+                                            [(ngModel)]="ngMember.pass">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <!-- {{ngMember|json}} -->
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right"
+                                style="font-size: 16px;" (click)="createUer()">บันทึก</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="ชื่อ..." type="text" name="name" [(ngModel)]="ngMember.name">
-                            </mat-form-field>
-                        </div>
-                        <div class="col-md-6">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="นาม-สกุล..." type="text" name="lastname" [(ngModel)]="ngMember.lastname">
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="อายุ..." type="text" name="age" [(ngModel)]="ngMember.age">
-                            </mat-form-field>
-                        </div>
-                        <div class="col-md-10">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="อีเมล..." type="email" name="email" [(ngModel)]="ngMember.email">
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <mat-form-field class="example-full-width">
-                                <input matInput placeholder="ที่อยู่..." type="text" name="adress" [(ngModel)]="ngMember.adress" >
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <!-- {{ngMember|json}} -->
-                    <button mat-raised-button type="submit" class="btn btn-danger pull-right" style="font-size: 16px;">บันทึก</button>
-                    <div class="clearfix"></div>
-                </form>
-            </div>  
-        </ng-template>
+        </div>
+
     </div>
 </div>
 

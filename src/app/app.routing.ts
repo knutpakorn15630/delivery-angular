@@ -4,14 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
+
   {
-    path: '',
-    redirectTo: 'user',
-    pathMatch: 'full',
-  },
-  {
+    // canActivate: [LoginGuard],
     path: '',
     component: AdminLayoutComponent,
     children: [{
@@ -29,7 +27,6 @@ const routes: Routes = [
       useHash: true
     })
   ],
-  exports: [
-  ],
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

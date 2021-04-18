@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  coreApi: 'http://localhost:3000'
+  coreApi: 'http://192.168.1.44:3002'
 };
+// http://localhost:3000

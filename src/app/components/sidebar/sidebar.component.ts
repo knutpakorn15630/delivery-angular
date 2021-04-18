@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ReqToken, ResToken } from 'app/interfaces/api-rotoken';
+import { ApiService } from 'app/services/api.service';
+import { LoginService } from 'app/services/login.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -30,11 +33,33 @@ export const ROUTES: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
 
-  constructor() { }
+  DataToken: ResToken = null
+
+  constructor(private apiUserService: ApiService, private LoginSer: LoginService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    // setInterval(this.resetToken, 10000);
   }
+
+  resetToken() {
+    console.log('this test --->');
+    const isTokens = this.LoginSer.getLogin()
+    const body: ReqToken = {
+      token: isTokens.refreshToken
+    }
+    this.apiUserService.reToken(body).subscribe(
+      (res) => {
+        this.DataToken = res;
+        console.log('this token ------------------------>', res)
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+
   isMobileMenu() {
     if ($(window).width() > 991) {
       return false;

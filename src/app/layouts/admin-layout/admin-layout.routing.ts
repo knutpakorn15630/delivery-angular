@@ -13,61 +13,22 @@ import { ShopcomponentComponent } from 'app/components/shopcomponent/shopcompone
 import { DeliverycomponentComponent } from 'app/components/deliverycomponent/deliverycomponent.component';
 import { LogincomponentComponent } from 'app/components/logincomponent/logincomponent.component';
 import { UserProfileComponent } from 'app/component/user-profile/user-profile.component';
+import { LoginGuard } from 'app/guards/login.guard';
+import { Component } from '@angular/core';
+import { SidebarComponent } from 'app/components/sidebar/sidebar.component';
 
 export const AdminLayoutRoutes: Routes = [
-    // {
-    //   path: '',
-    //   children: [ {
-    //     path: 'dashboard',
-    //     component: DashboardComponent
-    // }]}, {
-    // path: '',
-    // children: [ {
-    //   path: 'userprofile',
-    //   component: UserProfileComponent
-    // }]
-    // }, {
-    //   path: '',
-    //   children: [ {
-    //     path: 'icons',
-    //     component: IconsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'notifications',
-    //         component: NotificationsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'maps',
-    //         component: MapsComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'typography',
-    //         component: TypographyComponent
-    //     }]
-    // }, {
-    //     path: '',
-    //     children: [ {
-    //         path: 'upgrade',
-    //         component: UpgradeComponent
-    //     }]
-    // }
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'user-profile', component: UserProfileComponent },
-    { path: 'table-list', component: TableListComponent },
-    { path: 'typography', component: TypographyComponent },
-    { path: 'icons', component: IconsComponent },
-    { path: 'maps', component: MapsComponent },
-    { path: 'notifications', component: NotificationsComponent },
-    { path: 'upgrade', component: UpgradeComponent },
-    { path: 'user', component: UsercomponentComponent },
-    { path: 'report', component: ReportcomponentComponent },
-    {path: 'delivery', component: DeliverycomponentComponent},
-    {path: 'shop', component: ShopcomponentComponent},
-    {path: 'login', component: LogincomponentComponent}
+            { path: 'dashboard', component: DashboardComponent },
+            { path: 'user-profile', component: UserProfileComponent },
+            { path: 'table-list', component: TableListComponent },
+            { path: 'typography', component: TypographyComponent },
+            { path: 'icons', component: IconsComponent },
+            { path: 'maps', component: MapsComponent },
+            { path: 'notifications', component: NotificationsComponent },
+            { path: 'upgrade', component: UpgradeComponent },
+            { path: 'report', component: ReportcomponentComponent },
+            { path: 'delivery', component: DeliverycomponentComponent },
+            { path: 'shop', component: ShopcomponentComponent },
+            { path: 'login', component: LogincomponentComponent },
+            { path: 'user', component: UsercomponentComponent }
 ];

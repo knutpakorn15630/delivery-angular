@@ -15,7 +15,7 @@ export class UserProfileComponent implements OnInit {
     name: '',
     age: ''
   }
-  constructor( private apiUserService: ApiService) { }
+  constructor(private apiUserService: ApiService) { }
 
 
   // loadDataUser() {
@@ -50,7 +50,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.losdTest();
   }
 
 }
